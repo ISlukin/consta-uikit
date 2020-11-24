@@ -30,7 +30,7 @@ export type WithToltipProps<Props> = Omit<Props, 'tooltipProps'> & { tooltipProp
 export function withTooltip(hocProps?: TooltipProps) {
   return function<
     COMPONENT_TYPE extends
-      | React.ComponentType<ComponentProps>
+      | React.ComponentType<React.PropsWithRef<ComponentProps>>
       | ((props: ComponentProps) => React.ReactElement | null),
     COMPONENT_PROPS extends ComponentProps
   >(Component: COMPONENT_TYPE) {
@@ -47,7 +47,7 @@ export function withTooltip(hocProps?: TooltipProps) {
 
       const mode = modeComponentProp || modeHocProp || 'mouseover';
 
-      const content = props.tooltipProps?.content || contentHocProp;
+      const content = contentComponentProp || contentHocProp;
 
       const [visible, setVisible] = useState<boolean>(false);
 
