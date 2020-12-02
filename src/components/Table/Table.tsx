@@ -110,6 +110,7 @@ export type Props<T extends TableRow> = {
   className?: string;
   onRowHover?: onRowHover;
   lazyLoad?: LazyLoad;
+  testId?: string;
 };
 
 export type SortingState<T extends TableRow> = {
@@ -143,6 +144,7 @@ export const Table = <T extends TableRow>({
   className,
   onRowHover,
   lazyLoad,
+  testId,
 }: Props<T>): React.ReactElement => {
   const {
     headers,
@@ -418,6 +420,7 @@ export const Table = <T extends TableRow>({
         selectedFilters={selectedFilters}
         showHorizontalCellShadow={showHorizontalCellShadow}
         borderBetweenColumns={borderBetweenColumns}
+        testId={testId}
       />
       {filters && isSelectedFiltersPresent(selectedFilters) && (
         <div className={cnTable('RowWithoutCells')}>
@@ -437,6 +440,7 @@ export const Table = <T extends TableRow>({
               className={cnTable('CellsRow', { nth })}
               onMouseEnter={(e) => onRowHover && onRowHover({ id: row.id, e })}
               onMouseLeave={(e) => onRowHover && onRowHover({ id: undefined, e })}
+              data-testid={testId && `${testId}:table:row`}
             >
               {columnsWithMetaData(lowHeaders).map((column: TableColumn<T>, columnIdx: number) => {
                 return (
