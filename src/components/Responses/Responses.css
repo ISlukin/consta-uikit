@@ -1,0 +1,70 @@
+.Responses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &-Title {
+    margin-bottom: 0;
+    color: var(--color-typo-primary);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &_size_l {
+    .Responses-Title {
+      max-width: 350px;
+      margin-top: var(--space-xl);
+      font-size: var(--size-text-2xl);
+      line-height: var(--line-height-text-xs);
+    }
+
+    .Responses-Description {
+      margin-top: var(--space-xs);
+      font-size: var(--size-text-m);
+      line-height: var(--line-height-text-xs);
+    }
+
+    .Responses-Image {
+      width: 420px;
+    }
+  }
+
+  &_size_m {
+    .Responses-Title {
+      max-width: 350px;
+      margin-top: var(--space-xl);
+      font-size: var(--size-text-xl);
+      line-height: var(--line-height-text-xs);
+    }
+
+    .Responses-Description {
+      margin-top: var(--space-xs);
+      font-size: var(--size-text-s);
+      line-height: var(--line-height-text-xs);
+    }
+
+    .Responses-Image {
+      width: 300px;
+    }
+  }
+
+  &-Description {
+    max-width: 350px;
+    margin-bottom: 0;
+    color: var(--color-typo-ghost);
+    text-align: center;
+  }
+
+  &-ButtonsWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-2xl);
+  }
+
+  &-Button:not(:last-child) {
+    margin-right: var(--space-xs);
+  }
+}
